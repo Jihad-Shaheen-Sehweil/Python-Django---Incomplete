@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% block content%}
+    <article class="media content-section">
+        <div class="media-body">
+            <h2><a class="article-title" href="#"> {{ object.task_name }}</a></h2>
+            <div class="article-metadata">
+                <small class="text-muted">Created on {{  object.date_created|date:"h:i A - d/m/Y" }}</small>
+            </div>
+            <a class="btn btn-secondary btn-sm my-1" href="{% url 'task-update' object.id %}">Edit Task</a>
+            <a class="btn btn-danger btn-sm my-1" href="{% url 'task-delete' object.id %}">Delete Task</a>
+            <p class="article-content">{{ object.task_content }}</p>
+        </div>
+    </article>
+{% endblock content %}
